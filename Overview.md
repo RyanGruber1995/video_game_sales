@@ -68,14 +68,14 @@ I know from the site where I pulled this dataset that the data tracked games sin
     # Count games from each year
     SELECT 
       year,
-      COUNT(*)
+      COUNT(*) AS num_of_games
     FROM vgsales.games
     GROUP BY year
     ORDER BY year ASC
 
-| year 	| f0_  |
+| year 	| num_of_games |
 | :---  | :--- |
-1980	9    
+1980	| 9    
 1981	46
 1982	36
 1983	17
