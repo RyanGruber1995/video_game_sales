@@ -40,7 +40,7 @@ Because I wanted to remove the platform, genre, and publisher columns, and their
 
 # Part 2: BigQuery
 
-### 2.1: Data Exploration and cleaning
+### 2.1: Data Exploration and Cleaning
 
 The first thing I did was create a dataset called vgsales as well as tables for the four tables that were created during the data normalization process as shown here:
 
