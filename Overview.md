@@ -3,6 +3,8 @@
 
 # Data Normalization
 
+### Overview
+
 Although this dataset came from a public source and was mostly in a format that was usable, I took this opportunity to explore the data and discovered that the table could be optimized. The following is a screenshot of the columns and the first few rows of the raw data set:
 
 <br />
