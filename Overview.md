@@ -63,7 +63,7 @@ I initially took some time to explore the data and confirm that the data was rea
     # Delete rows where year is unknown
     DELETE FROM vgsales.games WHERE year = "N/A"
 
-I know from the site where I pulled this dataset that the data tracked games since 1980, but not necessary what the most recent year was. To find this out I ran the following query:
+I know from the site where I pulled this dataset that the data tracked games since 1980, but not necessary what the most recent year was. To find this out I ran the following query and got the following output:
 
     # Count games from each year
     SELECT 
@@ -114,3 +114,19 @@ I know from the site where I pulled this dataset that the data tracked games sin
 2016	| 344
 2017	| 3
 2020	| 1
+
+<br />
+
+Although the distribution is not uniform for each year, it makes sense that there are way fewer games in the earlier years as not as many games were released compared to later years and was harder to track every game that was released. However, I did find it interesting to see that only 3 games were released in 2017 and only 1 game was released in 2020 while no games in 2018 nor 2019 were recorded. Let's see which games those are:
+
+    # Get the games that were "released" in 2017 and 2020
+    SELECT name
+    FROM vgsales.games
+    WHERE year = 2017 OR year = 2020
+
+    | name |
+    | :--- |
+    | Imagine: Makeup Artist
+    | Phantasy Star Online 2 Episode 4: Deluxe Package
+    | Phantasy Star Online 2 Episode 4: Deluxe Package
+    Brothers Conflict: Precious Baby
