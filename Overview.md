@@ -45,4 +45,18 @@ Because I wanted to remove the platform, genre, and publisher columns, and their
 
 ### Data Exploration and cleaning
 
-I initially took some time to explore the data and confirm that the data was ready for use. 
+The first thing I did was create a dataset called vgsales as well as tables for the four tables that were created during the data normalization process as shown here:
+
+<br />
+
+![](https://github.com/RyanGruber1995/video_game_sales/blob/main/screenshots/BigQuery_tables.PNG)
+
+<br />
+
+I initially took some time to explore the data and confirm that the data was ready for use. The first issue I came across was the schema of the games table as the data type of the year column was a string. Upon further analysis I noticed that some games had a year of 'N/A' as either the year was probably unknown of just not entered. By running the following code, I discovered that 271 games had this issue. It wouldn't be hard to fix this by researching when those games were released and updating them to have the complete dataset, but as there are so many to account for I decided to remove those observations.
+
+    # Count number of rows that have year as 'N/A'
+    SELECT 
+      COUNT(*)
+    FROM vgsales.games
+    WHERE year = "N/A"
