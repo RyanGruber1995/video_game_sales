@@ -1,5 +1,6 @@
 # Table of Contents
 1. [Data Normalization](#DataNormalization)
+    a. [Creating Tables](#Creating Tables)
 
 # Data Normalization
 
@@ -24,3 +25,7 @@ I created two columns for the platform table: *platform_id* and *platform_name*.
 <br />
 
 This created the first inconsistency by separating data because '2600' was formatted as a number, and I converted the entire column in both the platform and games tables to ensure the same data type.
+
+<br />
+
+Once these tables were created, it was time to finalize making the games table. 
