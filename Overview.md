@@ -38,3 +38,5 @@ Once these tables were created, it was time to finalize making the games table. 
 <br />
 
 Because I wanted to remove the platform, genre, and publisher columns, and their respective id columns were referencing these columns, I needed to hardcode everything so those columns could be removed without causing errors. The [vgsales_draft.xlsx](https://github.com/RyanGruber1995/video_game_sales/blob/main/vgsales_draft.xlsx) file keeps track of the formulas I created before hardcoding and removing columns while the [vgsales_final.xlsx](https://github.com/RyanGruber1995/video_game_sales/blob/main/vgsales_final.xlsx) file shows the finalized tables that were uploaded into BigQuery for further analysis.
+
+# BigQuery
