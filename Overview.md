@@ -4,9 +4,9 @@
 # Data Normalization
 
 Although this dataset came from a public source and was mostly in a format that was usable, I took this opportunity to explore the data and discovered that the table could be optimized. The following is a screenshot of the columns and the first few rows of the raw data set:
-&nbsp;
-&nbsp;
-&nbsp;
+<br />
+<br />
+<br />
 
 ![](https://github.com/RyanGruber1995/video_game_sales/blob/main/screenshots/data_normalization.PNG)
 
