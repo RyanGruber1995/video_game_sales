@@ -1,7 +1,62 @@
 # Table of Contents
 1. [Data Normalization](#DataNormalization)
 
-
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
+blah
 
 
 
