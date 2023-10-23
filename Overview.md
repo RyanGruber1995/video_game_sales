@@ -120,13 +120,15 @@ I know from the site where I pulled this dataset that the data tracked games sin
 Although the distribution is not uniform for each year, it makes sense that there are way fewer games in the earlier years as not as many games were released compared to later years and was harder to track every game that was released. However, I did find it interesting to see that only 3 games were released in 2017 and only 1 game was released in 2020 while no games in 2018 nor 2019 were recorded. Let's see which games those are:
 
     # Get the games that were "released" in 2017 and 2020
-    SELECT name
+    SELECT 
+        name,
+        year
     FROM vgsales.games
     WHERE year = 2017 OR year = 2020
 
-| name |
-| :--- |
-| Imagine: Makeup Artist
-| Phantasy Star Online 2 Episode 4: Deluxe Package
-| Phantasy Star Online 2 Episode 4: Deluxe Package
-| Brothers Conflict: Precious Baby
+| name | year |
+| :--- | :--- |
+| Imagine: Makeup Artist | 2020
+| Phantasy Star Online 2 Episode 4: Deluxe Package | 2017
+| Phantasy Star Online 2 Episode 4: Deluxe Package | 2017
+| Brothers Conflict: Precious Baby | 2017
