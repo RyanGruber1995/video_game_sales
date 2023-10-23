@@ -163,3 +163,32 @@ Running the query to get the games released in 2017 or 2020 posed another issue 
     FROM vgsales.games
 
 Upon further investigation, the games that had duplicate names were either instances of a game that were released on different platforms or remakes of the same game that were released in later years. Now that the data has been explored and cleaned, let's do some analysis!
+
+### Nintendo Analysis
+
+For this part of the project, I pretended that I was an analyst for my favorite game company - Nintendo. Let's assume I was asked the question *"What is our best selling game series?"* To answer this, I would need to categorize each game as different games can belong to the same series. To create a variable and make sure it's working I ran the following query with the following results (first 5 lines only):
+
+    # Categorize Nintendo games
+    SELECT
+      name,
+      CASE
+        WHEN name LIKE '%Mario%' THEN 'Mario'
+        WHEN name LIKE '%Pok%mon%' THEN 'Pokemon'
+        WHEN name LIKE '%Zelda%' THEN 'Zelda'
+        WHEN name LIKE '%Donkey Kong%' THEN 'Donkey Kong'
+        WHEN name LIKE '%Kirby%' THEN 'Kirby'
+        WHEN name LIKE '%Metroid%' THEN 'Metroid'
+        WHEN name LIKE '%Animal Crossing%' THEN 'Animal Crossing'
+        ELSE "Other"
+      END AS game_series
+    FROM vgsales.games g JOIN vgsales.publisher p ON g.publisher_id = p.publisher_id
+    WHERE p.publisher_name = 'Nintendo'
+    ORDER BY game_id ASC
+
+| name	| game_series |
+| :---  | :---        |
+| Wii Sports	| Other
+| Super Mario Bros.	| Mario
+| Mario Kart Wii	| Mario
+| Wii Sports Resort	| Other
+| Pokemon Red/Pokemon Blue	| Pokemon
