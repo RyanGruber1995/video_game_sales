@@ -179,7 +179,7 @@ For this part of the project, I pretended that I was an analyst for my favorite 
         WHEN name LIKE '%Kirby%' THEN 'Kirby'
         WHEN name LIKE '%Metroid%' THEN 'Metroid'
         WHEN name LIKE '%Animal Crossing%' THEN 'Animal Crossing'
-        ELSE "Other"
+        ELSE 'Other'
       END AS game_series
     FROM vgsales.games g JOIN vgsales.publisher p ON g.publisher_id = p.publisher_id
     WHERE p.publisher_name = 'Nintendo'
@@ -192,3 +192,32 @@ For this part of the project, I pretended that I was an analyst for my favorite 
 | Mario Kart Wii	| Mario
 | Wii Sports Resort	| Other
 | Pokemon Red/Pokemon Blue	| Pokemon
+
+There are numerous game series that Nintendo has released, but I chose only a couple that came to mind for this analysis. Now that I confirmed that the variable *game_series* is working, I can find which series has the highest sales while excluding any 'other' series:
+
+    SELECT
+      CASE
+        WHEN name LIKE '%Mario%' THEN 'Mario'
+        WHEN name LIKE '%Pok%mon%' THEN 'Pokemon'
+        WHEN name LIKE '%Zelda%' THEN 'Zelda'
+        WHEN name LIKE '%Donkey Kong%' THEN 'Donkey Kong'
+        WHEN name LIKE '%Kirby%' THEN 'Kirby'
+        WHEN name LIKE '%Metroid%' THEN 'Metroid'
+        WHEN name LIKE '%Animal Crossing%' THEN 'Animal Crossing'
+        ELSE "Other"
+      END AS game_series,
+      ROUND(SUM(Global_Sales),2) AS total_sales_millions
+    FROM vgsales.games
+    GROUP BY game_series
+    HAVING game_series != 'Other'
+    ORDER BY total_sales_millions DESC
+
+| game_series	| total_sales_millions |
+| :---          | :---                 |
+| Mario	| 555.26
+| Pokemon	| 250.57
+| Zelda	| 82.37
+| Donkey Kong	| 60.71
+| Kirby	| 37.28
+| Animal Crossing	| 32.59
+| Metroid	| 17.94
