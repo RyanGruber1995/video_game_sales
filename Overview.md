@@ -1,7 +1,4 @@
-# Table of Contents
-1. [Data Normalization](#DataNormalization)
-
-# Data Normalization
+# Part 1: Data Normalization
 
 ### Overview
 
@@ -41,7 +38,7 @@ Because I wanted to remove the platform, genre, and publisher columns, and their
 
 <br />
 
-# BigQuery
+# Part 2: BigQuery
 
 ### Data Exploration and cleaning
 
