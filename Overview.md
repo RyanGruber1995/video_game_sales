@@ -75,7 +75,7 @@ I know from the site where I pulled this dataset that the data tracked games sin
 
 | year 	| f0_  |
 | :---  | :--- |
-| 1980	| 9    |
+1980	9    
 1981	46
 1982	36
 1983	17
