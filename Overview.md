@@ -1,6 +1,5 @@
 # Table of Contents
 1. [Data Normalization](#DataNormalization)
-    a. [Creating Tables](#Creating Tables)
 
 # Data Normalization
 
@@ -28,4 +27,12 @@ This created the first inconsistency by separating data because '2600' was forma
 
 <br />
 
-Once these tables were created, it was time to finalize making the games table. 
+Once these tables were created, it was time to finalize making the games table. To do this, I mapped the record for each of these three attributes to their respective tables by using an INDEX/MATCH function. Below is a screenshot of the formula and mapping process used for the *platform_id* with the same methodology being applied to the other id columns:
+
+<br />
+
+![](https://github.com/RyanGruber1995/video_game_sales/blob/main/screenshots/id_creation.PNG)
+
+<br />
+
+Because I wanted to remove the platform, genre, and publisher columns, and their respective id columns were referencing these columns, I needed to hardcode everything so those columns could be removed without causing errors. The [vgsales_draft.xlsx](https://github.com/RyanGruber1995/video_game_sales/blob/main/vgsales_draft.xlsx) file keeps track of the formulas I created before hardcoding and removing columns while the [vgsales_final.xlsx](https://github.com/RyanGruber1995/video_game_sales/blob/main/vgsales_final.xlsx) file shows the finalized tables that were uploaded into BigQuery for further analysis.
