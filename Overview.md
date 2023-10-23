@@ -132,3 +132,34 @@ Although the distribution is not uniform for each year, it makes sense that ther
 | Phantasy Star Online 2 Episode 4: Deluxe Package | 2017
 | Phantasy Star Online 2 Episode 4: Deluxe Package | 2017
 | Brothers Conflict: Precious Baby | 2017
+
+Since there were only a few games that were possibly recorded incorrectly, I did a quick Google search to see when these games were released and confirmed the years were wrong. The following query resolved this issue:
+
+    # Update years for games in 2017 and 2020
+    UPDATE vgsales.games
+    SET year = 2009
+    WHERE name = "Imagine: Makeup Artist"
+
+    UPDATE vgsales.games
+    SET year = 2007
+    WHERE name = "Phantasy Star Online 2 Episode 4: Deluxe Package"
+
+    UPDATE vgsales.games
+    SET year = 2016
+    WHERE name = "Brothers Conflict: Precious Baby"
+
+Running the query to get the games released in 2017 or 2020 posed another issue - possible duplicate data as one of the games showed up twice. I ran the first following query and got back 2,717 games that had duplicate names, but the second query that selected the unique rows produced the same number of rows (16,327) as the original games table meaning that there are no dupllicate entries:
+
+    # Find duplicate names and number of occurences
+    SELECT
+      DISTINCT name,
+      COUNT(name) AS num_instances
+    FROM vgsales.games
+    GROUP BY name
+    HAVING num_instances > 1
+
+    # Find unique records
+    SELECT DISTINCT *
+    FROM vgsales.games
+
+Upon further investigation, the games that had duplicate names were either instances of a game that were released on different platforms or remakes of the same game that were released in later years. Now that the data has been explored and cleaned, let's do some analysis!
