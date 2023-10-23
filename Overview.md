@@ -124,9 +124,9 @@ Although the distribution is not uniform for each year, it makes sense that ther
     FROM vgsales.games
     WHERE year = 2017 OR year = 2020
 
-    | name |
-    | :--- |
-    | Imagine: Makeup Artist
-    | Phantasy Star Online 2 Episode 4: Deluxe Package
-    | Phantasy Star Online 2 Episode 4: Deluxe Package
-    Brothers Conflict: Precious Baby
+| name |
+| :--- |
+| Imagine: Makeup Artist
+| Phantasy Star Online 2 Episode 4: Deluxe Package
+| Phantasy Star Online 2 Episode 4: Deluxe Package
+| Brothers Conflict: Precious Baby
