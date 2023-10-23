@@ -56,7 +56,61 @@ The first thing I did was create a dataset called vgsales as well as tables for 
 I initially took some time to explore the data and confirm that the data was ready for use. The first issue I came across was the schema of the games table as the data type of the year column was a string. Upon further analysis I noticed that some games had a year of 'N/A' as either the year was probably unknown of just not entered. By running the following code, I discovered that 271 games had this issue. It wouldn't be hard to fix this by researching when those games were released and updating them to have the complete dataset, but as there are so many to account for I decided to remove those observations.
 
     # Count number of rows that have year as 'N/A'
-    SELECT 
-      COUNT(*)
+    SELECT COUNT(*)
     FROM vgsales.games
     WHERE year = "N/A"
+
+    # Delete rows where year is unknown
+    DELETE FROM vgsales.games WHERE year = "N/A"
+
+I know from the site where I pulled this dataset that the data tracked games since 1980, but not necessary what the most recent year was. To find this out I ran the following query:
+
+    # Count games from each year
+    SELECT 
+      year,
+      COUNT(*)
+    FROM vgsales.games
+    GROUP BY year
+    ORDER BY year ASC
+
+| year 	| f0_  |
+| :---  | :--- |
+| 1980	| 9    |
+1981	46
+1982	36
+1983	17
+1984	14
+1985	14
+1986	21
+1987	16
+1988	15
+1989	17
+1990	16
+1991	41
+1992	43
+1993	60
+1994	121
+1995	219
+1996	263
+1997	289
+1998	379
+1999	338
+2000	349
+2001	482
+2002	829
+2003	775
+2004	763
+2005	941
+2006	1008
+2007	1202
+2008	1428
+2009	1431
+2010	1259
+2011	1139
+2012	657
+2013	546
+2014	582
+2015	614
+2016	344
+2017	3
+2020	1
