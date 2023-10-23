@@ -13,7 +13,6 @@ Although this dataset came from a public source and was mostly in a format that 
 
 I identified three different attributes that could be broken out into different tables: Platform, Genre, and Publisher. These columns contain string data and can have multiple of the same value within their respective columns, e.g. having 'Nintendo' multiple times per the screenshot. Even though this particular dataset is able to fit in a spreadsheet, this would not be an ideal situation for a much larger dataset and processing time for running SQL queries would be reduced. Using Google Sheets, I created these three new tables, created ids for each table (primary keys), and mapped the ids to the games table which was created by taking a copy of the raw data and adding in new columns to map the ids to the new tables. The process for creating the platform, genre, and publisher tables were the same, so I will walkthrough the process of creating the platform table which was then applied to the other tables.
 
-<br />
 
 ### Creating Tables
 
