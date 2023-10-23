@@ -22,3 +22,5 @@ I created two columns for the platform table: *platform_id* and *platform_name*.
 ![](https://github.com/RyanGruber1995/video_game_sales/blob/main/screenshots/secondary_table_creation.PNG)
 
 <br />
+
+This created the first inconsistency by separating data because '2600' was formatted as a number and converted the entire column in both the platform and games tables.
