@@ -195,6 +195,7 @@ For this part of the project, I pretended that I was an analyst for my favorite 
 
 There are numerous game series that Nintendo has released, but I chose only a couple that came to mind for this analysis. Now that I confirmed that the variable *game_series* is working, I can find which series has the highest sales while excluding any 'other' series:
 
+    # Sort game series by sales
     SELECT
       CASE
         WHEN name LIKE '%Mario%' THEN 'Mario'
@@ -221,3 +222,24 @@ There are numerous game series that Nintendo has released, but I chose only a co
 | Kirby	| 37.28
 | Animal Crossing	| 32.59
 | Metroid	| 17.94
+
+Here we can clearly see that the Mario series is the highest grossing series with a total of $555.26 million sales. Now let's say I was asked the question *"Do Pokemon games sell better for handheld or console devices?"* For this, I would need to categorize the platforms with GameBoy (GB), GameBoy Advanced (GBA), Nintendo DS (DS), na dNintendo 3DS (3DS) as the handheld devices with the other platforms being consoles:
+
+    # Compare sales of handheld vs console Pokemon games
+    SELECT
+      CASE
+        WHEN platform_name IN ('GB', 'GBA', 'DS', '3DS') THEN 'Handheld'
+        ELSE 'Console'
+      END AS device,
+      ROUND(SUM(Global_Sales), 2) AS total_sales_millions,
+      ROUND(AVG(Global_Sales), 2) AS average_sales_millions
+    FROM vgsales.games g JOIN vgsales.platform p ON g.platform_id = p.platform_id
+    WHERE name LIKE '%Pok%mon%'
+    GROUP BY device
+
+| device	| total_sales_millions	| average_sales_millions |
+| :--- | :--- | :--- |
+| Handheld	| 232.25	| 5.96 |
+| Console	| 18.32	| 2.04 |
+
+Here we can see that there's not much of a contest between the 2 with Pokemon games on handheld devices not only selling significantly more in total, but almost 3 times as much per game on average.
