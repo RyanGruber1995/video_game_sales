@@ -220,7 +220,7 @@ There are numerous game series that Nintendo has released, but I chose only a co
 | Animal Crossing	| 32.59
 | Metroid	| 17.94
 
-Here we can clearly see that the Mario series is the highest grossing series with a total of $555.26 million sales. Now let's say I was asked the question *"Do Pokemon games sell better for handheld or console devices?"* For this, I would need to categorize the platforms with GameBoy (GB), GameBoy Advanced (GBA), Nintendo DS (DS), and Nintendo 3DS (3DS) as the handheld devices with the other platforms being consoles:
+Here we can clearly see that the Mario series is the highest grossing series with a total of $555.26 million sales. Now let's say I was asked the question *"Do Pokemon games sell better for handheld or console devices?"* For this, I would need to categorize the platforms with GameBoy (GB), GameBoy Advanced (GBA), Nintendo DS (DS), and Nintendo 3DS (3DS) as the handheld devices with the other platforms being consoles and comparing the total and average sales for each device:
 
     # Compare sales of handheld vs console Pokemon games
     SELECT
