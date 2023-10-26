@@ -239,4 +239,54 @@ Here we can clearly see that the Mario series is the highest grossing series wit
 | Handheld	| 232.25	| 5.96 |
 | Console	| 18.32	| 2.04 |
 
-Here we can see that there's not much of a contest between the two with Pokemon games on handheld devices not only selling significantly more in total, but almost three times as much per game on average. This would be important knowledge if Nintendo was planning on releasing a new Pokemon game to think about which device to release it on. Finally let's say I was asked *"Does the length of time between each main series Pokemon game have an impact on sales?"* This is important to think about because if it's been a long time until a newer game was released then that game would have more time to generate sales since it would be the most current game where the most recent games generate more sales than outdated games. Similarly, If it's been a long time for the most recent game to release, people might be more inclined to purchase the game because it's been a while since a game for that series released.
+Here we can see that there's not much of a contest between the two with Pokemon games on handheld devices not only selling significantly more in total, but almost three times as much per game on average. This would be important knowledge if Nintendo was planning on releasing a new Pokemon game to think about which device to release it on. Finally let's say I was asked *"Do Pokemon main series games sell better when they are the first released main series game on a new platform?"* In other words, if there were five main series games released on a platform, does the game that was released first sell better than the other four? To look into this, I wrote the following query:
+
+    WITH main_series_games AS ( -- create a main_series variable to filter later
+    SELECT *,
+      CASE WHEN name IN 
+        (
+          'Pokemon Red/Pokemon Blue',
+          'Pokemon Gold/Pokemon Silver',
+          'Pokemon Diamond/Pokemon Pearl',
+          'Pokemon Ruby/Pokemon Sapphire',
+          'Pokemon Black/Pokemon White',
+          'Pokémon Yellow: Special Pikachu Edition',
+          'Pokemon X/Pokemon Y',
+          'Pokemon HeartGold/Pokemon SoulSilver',
+          'Pokemon Omega Ruby/Pokemon Alpha Sapphire',
+          'Pokemon FireRed/Pokemon LeafGreen',
+          'Pokemon Black 2/Pokemon White 2',
+          'Pokémon Platinum Version',
+          'Pokémon Emerald Version',
+          'Pokémon Crystal Version'
+        ) THEN 1
+        ELSE 0
+      END AS main_series
+    FROM vgsales.games g JOIN vgsales.platform p ON g.platform_id = p.platform_id
+    )
+    SELECT -- create a table with relevant columns, filter for main series games, first partitioning by platform, and then sorting by year
+      game_id,
+      name,
+      platform_name,
+      year,
+      Global_Sales 
+    FROM main_series_games
+    WHERE main_series = 1
+    ORDER BY platform_name ASC, year ASC
+
+| game_id	| name	| platform_name	| year	| Global_Sales |
+| :--- | :--- | :--- | :--- | :--- |
+| 33	| Pokemon X/Pokemon Y	| 3DS	| 2013	| 14.35 |
+| 50	| Pokemon Omega Ruby/Pokemon Alpha Sapphire	| 3DS	| 2014	| 11.33 |
+| 21	| Pokemon Diamond/Pokemon Pearl	| DS	| 2006	| 18.36 |
+| 89	| Pokémon Platinum Version	| DS	| 2008	| 7.84 |
+| 46	| Pokemon HeartGold/Pokemon SoulSilver	| DS	| 2009	| 11.9 |
+| 27	| Pokemon Black/Pokemon White	| DS	| 2010	| 15.32 |
+| 82	| Pokemon Black 2/Pokemon White 2	| DS	| 2012	| 8.33 |
+| 5	    | Pokemon Red/Pokemon Blue	| GB	| 1996	| 31.37 |
+| 31	| Pokémon Yellow: Special Pikachu Edition	| GB	| 1998	| 14.64 |
+| 13	| Pokemon Gold/Pokemon Silver	| GB	| 1999	| 23.1 |
+| 133	| Pokémon Crystal Version	| GB	| 2000	| 6.39 |
+| 26	| Pokemon Ruby/Pokemon Sapphire	| GBA	| 2002	| 15.85 |
+| 59	| Pokemon FireRed/Pokemon LeafGreen	| GBA	| 2004	| 10.49 |
+| 131	| Pokémon Emerald Version	| GBA	| 2004	| 6.41 |
