@@ -163,7 +163,11 @@ Upon further investigation, the games that had duplicate names were either insta
 
 ### 2.2: Nintendo Analysis
 
-For this part of the project, I pretended that I was an analyst for my favorite game company - Nintendo. Let's assume I was asked the question *"What is our best selling game series?"* To answer this, I would need to categorize each game as different games can belong to the same series. To create a variable and make sure it's working I ran the following query with the following results (first 5 lines only):
+For this part of the project, I pretended that I was an analyst for my favorite game company - Nintendo. I came up with a few different business questions to answer by running queries to summarize the data. 
+
+**Question 1:** *"What is our best selling game series?"* 
+
+To answer this, I would need to categorize each game as different games can belong to the same series. To create a variable and make sure it's working I ran the following query with the following results (first 5 lines only):
 
     # Categorize Nintendo games
     SELECT
@@ -220,7 +224,11 @@ There are numerous game series that Nintendo has released, but I chose only a co
 | Animal Crossing	| 32.59
 | Metroid	| 17.94
 
-Here we can clearly see that the Mario series is the highest grossing series with a total of $555.26 million sales. Now let's say I was asked the question *"Do Pokemon games sell better for handheld or console devices?"* For this, I would need to categorize the platforms with GameBoy (GB), GameBoy Advanced (GBA), Nintendo DS (DS), and Nintendo 3DS (3DS) as the handheld devices with the other platforms being consoles and comparing the total and average sales for each device:
+Here we can clearly see that the Mario series is the highest grossing series with a total of $555.26 million sales. 
+
+**Question 2:** *"Do Pokemon games sell better for handheld or console devices?"* 
+
+For this question, I would need to categorize the platforms with GameBoy (GB), GameBoy Advanced (GBA), Nintendo DS (DS), and Nintendo 3DS (3DS) as the handheld devices with the other platforms being consoles and comparing the total and average sales for each device:
 
     # Compare sales of handheld vs console Pokemon games
     SELECT
@@ -239,7 +247,11 @@ Here we can clearly see that the Mario series is the highest grossing series wit
 | Handheld	| 232.25	| 5.96 |
 | Console	| 18.32	| 2.04 |
 
-Here we can see that there's not much of a contest between the two with Pokemon games on handheld devices not only selling significantly more in total, but almost three times as much per game on average. This would be important knowledge if Nintendo was planning on releasing a new Pokemon game to think about which device to release it on. Finally let's say I was asked *"Do Pokemon main series games sell better when they are the first released main series game on a new platform?"* In other words, if there were five main series games released on a platform, does the game that was released first sell better than the other four? To look into this, I wrote the following query:
+Here we can see that there's not much of a contest between the two with Pokemon games on handheld devices not only selling significantly more in total, but almost three times as much per game on average. This would be important knowledge if Nintendo was planning on releasing a new Pokemon game to think about which device to release it on.
+
+**Question 3:** *"Do Pokemon main series games sell better when they are the first released main series game on a new platform?"* 
+
+In other words, if there were five main series games released on a platform, does the game that was released first sell better than the other four? To look into this, I wrote the following query:
 
     WITH main_series_games AS ( -- create a main_series variable to filter later
     SELECT *,
@@ -292,4 +304,4 @@ Here we can see that there's not much of a contest between the two with Pokemon 
 | 131	| Pokémon Emerald Version	| GBA	| 2004	| 6.41 |
 
 <br /> 
-This is a lot to take in, so let me break this down a little bit. The first thing to do was creating a table to do this analysis on by identifying what the main series Pokemon games were. By manually looking through the data and having a strong understanding of every Pokemon game, I was able to find the ones that were listed in this dataset. These were manually entered to create the *main_series* attribute. The main_series_games table combined the games table that has all of the relevant information with the platform table that has the platform names - otherwise I would have only been able to partition the table by *platform_id.* Then, by taking that table and choosing relevant columns, I filtered the table to only include the main series games, partitioned the table by platform, and then sorted the table year. The partitioning and sorting allows the table to be grouped by platform and then within those groups to then be sorted by release date which allows us to see the chronological order each game was released on each platform. By analyzing this table, you can see that the first game that was released on each platform had the highest sales for that platform. This is important to know because if Nintendo were to release a new platform, it would be critical to think about the spending and marketing for that game much more than they do for their other games.
+This is a lot to take in, so let me break this down a little bit. The first thing to do was creating a table to perform this analysis on by identifying what the main series Pokemon games were. By manually looking through the data and having a strong understanding of every Pokemon game, I was able to find the ones that were listed in this dataset. These were manually entered to create the *main_series* attribute. The main_series_games table combined the games table that has all of the relevant information with the platform table that has the platform names - otherwise I would have only been able to partition the table by *platform_id.* Then, by taking that table and choosing relevant columns, I filtered the table to only include the main series games, partitioned the table by platform, and then sorted the table year. The partitioning and sorting allows the table to be grouped by platform and then within those groups to then be sorted by release date which allows us to see the chronological order each game was released on each platform. By analyzing this table, you can see that the first game that was released on each platform had the highest sales for that platform. This is important to know because if Nintendo were to release a new platform, it would be critical to think about the spending and marketing for that game much more than they do for their other games.
