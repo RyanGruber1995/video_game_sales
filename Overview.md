@@ -253,6 +253,7 @@ Here we can see that there's not much of a contest between the two with Pokemon 
 
 In other words, if there were five main series games released on a platform, does the game that was released first sell better than the other four? To look into this, I wrote the following query:
 
+    #Group main series Pokemon game by platform
     WITH main_series_games AS ( -- create a main_series variable to filter later
     SELECT *,
       CASE WHEN name IN 
