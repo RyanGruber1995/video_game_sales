@@ -307,3 +307,11 @@ In other words, if there were five main series games released on a platform, doe
 <br /> 
 
 This is a lot to take in, so let me break this down a little bit. The first thing to do was creating a table to perform this analysis on by identifying what the main series Pokemon games were. By manually looking through the data and having a strong understanding of every Pokemon game, I was able to find the ones that were listed in this dataset. These were manually entered to create the *main_series* attribute. The main_series_games table combined the games table that has all of the relevant information with the platform table that has the platform names - otherwise I would have only been able to partition the table by *platform_id.* Then, by taking that table and choosing relevant columns, I filtered the table to only include the main series games, partitioned the table by platform, and then sorted the table year. The partitioning and sorting allows the table to be grouped by platform and then within those groups to then be sorted by release date which allows us to see the chronological order each game was released on each platform. By analyzing this table, you can see that the first game that was released on each platform had the highest sales for that platform. This is important to know because if Nintendo were to release a new platform, it would be critical to think about the spending and marketing for that game much more than they do for their other games.
+
+That concludes the SQL analysis of this project. For a full list of queries that were ran please refer to the [SQL_Queries.sql](https://github.com/RyanGruber1995/video_game_sales/blob/main/SQL_Queries.sql) file. The final part of this project is taking this data and visualizing it in Tableau, creating a dashboard that would be useful for stakeholders.
+
+# Part 3: Tableau
+
+### 3.1 Overview
+
+The first step I took to create a dashboard for this dataset was by deciding what trends and relationships I wanted to present that would be helpful for decision makers. Then, I decided what chart types would be best to represent that data, being mindful of using different kinds of charts. And finally, I drew a rough sketch of the layout for the dashboard to efficiently build it in a visually-appealing way. 
