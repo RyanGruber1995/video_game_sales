@@ -38,9 +38,7 @@ Because I wanted to remove the platform, genre, and publisher columns, and their
 
 <br />
 
-# Part 2: BigQuery
-
-### 2.1: Data Exploration and Cleaning
+# Part 2: Data Exploring and Cleaning
 
 The first thing I did was create a dataset called vgsales as well as tables for the four tables that were created during the data normalization process as shown here:
 
@@ -161,9 +159,37 @@ Running the query to get the games released in 2017 or 2020 posed another issue 
 
 Upon further investigation, the games that had duplicate names were either instances of a game that were released on different platforms or remakes of the same game that were released in later years. Now that the data has been explored and cleaned, let's do some analysis!
 
-### 2.2: Nintendo Analysis
+<br />
 
-For this part of the project, I pretended that I was an analyst for my favorite game company - Nintendo. I came up with a few different business questions to answer by running queries to summarize the data. 
+# Part 3: Tableau
+
+### 3.1 Overview
+
+The [Video Game Sales](https://public.tableau.com/app/profile/ryan.gruber/viz/VideoGameSales_16984594653460/MarketTrends) dashboard can be found on my [Tableau Online Portfolio](https://public.tableau.com/app/profile/ryan.gruber/vizzes).
+
+The first step I took to create a dashboard for this dataset was by deciding what trends and relationships I wanted to present that would be helpful for decision makers. Then, I decided what chart types would be best to represent that data, being mindful of using different kinds of charts. And finally, I drew a rough sketch of the layout for the dashboard to efficiently build it in a visually-appealing way. I also acted as if I was an analyst for my favorite game company, Nintendo, by analyzing the entire video game market and seeing how well Nintendo was performing compared to other publishers.
+
+The goal of this dashboard was to easily compare Nintendo's trends along with those in the entire market by having identical dashboards that stakeholders can switch between. The 'Market Trends' dashboard represents the overall market analysis while the 'Nintendo Market Analysis' dashboard shows trends only for Nintendo. 
+
+### 3.2 Chart Explanations
+
+**KPIS:** The KPIs are totals that do not update when filters are applied which helps stakeholders identify percentages of the overall market. For example, for the entire video game market, action games brought in a total of $1,722M which is about 1/5 of the total sales.
+
+**Sales By Region:** This donut chart shows the sales between the different regions in the dataset: NA, EU, JP and other along with the total sales, and represents the data when filters are applied.
+
+**Sales By Genre:** This chart is a heatmap that shows the relationship between genre and region. The genres with the highest sales in each region are shaded with a darker red while the lower sales are a lighter red.
+
+**Sales By Platform:** This treemap shows which platforms had the highest sales. The ones with larger sales are larger and shaded with a darker blue.
+
+**Top 10 Publishers/Top 10 Games:** The Top 10 Publishers bar chart in the Market Trends dashboard compares the total sales by publisher but is limited to the top 10 publishers. Since no other publishers are being analyzed in the Nintendo dashboard, this chart was replaced by the top 10 games sold by Nintendo.
+
+**Sales Over Time:** This is a hybrid chart combining a line chart and stacked bar chart. The line represents the total sales for each year, while the stacked bar chart shows the total sales by year for each region. There is also another line across the whole chart that represents the average sales.
+
+<br />
+
+# Part 4: Nintendo Analysis
+
+Continuing the observations for Nintendo, I wanted to perform a deeper analysis in Nintendo's data with SQL. I came up with the following questions that could be asked by a stakeholder.
 
 **Question 1:** *"What is our best selling game series?"* 
 
@@ -310,26 +336,6 @@ This is a lot to take in, so let me break this down a little bit. The first thin
 
 That concludes the SQL analysis of this project. For a full list of queries that were ran please refer to the [SQL_Queries.sql](https://github.com/RyanGruber1995/video_game_sales/blob/main/SQL_Queries.sql) file. The final part of this project is taking this data and visualizing it in Tableau, creating a dashboard that would be useful for stakeholders.
 
-# Part 3: Tableau
+# Part 5: Conclusion
 
-### 3.1 Overview
 
-The [Video Game Sales](https://public.tableau.com/app/profile/ryan.gruber/viz/VideoGameSales_16984594653460/MarketTrends) dashboard can be found on my [Tableau Online Portfolio](https://public.tableau.com/app/profile/ryan.gruber/vizzes).
-
-The first step I took to create a dashboard for this dataset was by deciding what trends and relationships I wanted to present that would be helpful for decision makers. Then, I decided what chart types would be best to represent that data, being mindful of using different kinds of charts. And finally, I drew a rough sketch of the layout for the dashboard to efficiently build it in a visually-appealing way. 
-
-The goal of this dashboard was to easily compare Nintendo's trends along with those in the entire market by having identical dashboards that stakeholders can switch between. The 'Market Trends' dashboard represents the overall market analysis while the 'Nintendo Market Analysis' dashboard shows trends only for Nintendo. 
-
-### 3.2 Chart Explanations
-
-**KPIS:** The KPIs are totals that do not update when filters are applied which helps stakeholders identify percentages of the overall market. For example, for the entire video game market, action games brought in a total of $1,722M which is about 1/5 of the total sales.
-
-**Sales By Region:** This donut chart shows the sales between the different regions in the dataset: NA, EU, JP and other along with the total sales, and represents the data when filters are applied.
-
-**Sales By Genre:** This chart is a heatmap that shows the relationship between genre and region. The genres with the highest sales in each region are shaded with a darker red while the lower sales are a lighter red.
-
-**Sales By Platform:** This treemap shows which platforms had the highest sales. The ones with larger sales are larger and shaded with a darker blue.
-
-**Top 10 Publishers/Top 10 Games:** The Top 10 Publishers bar chart in the Market Trends dashboard compares the total sales by publisher but is limited to the top 10 publishers. Since no other publishers are being analyzed in the Nintendo dashboard, this chart was replaced by the top 10 games sold by Nintendo.
-
-**Sales Over Time:** This is a hybrid chart combining a line chart and stacked bar chart. The line represents the total sales for each year, while the stacked bar chart shows the total sales by year for each region. There is also another line across the whole chart that represents the average sales.
