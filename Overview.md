@@ -314,4 +314,6 @@ That concludes the SQL analysis of this project. For a full list of queries that
 
 ### 3.1 Overview
 
+The [Video Game Sales](https://public.tableau.com/app/profile/ryan.gruber/viz/VideoGameSales_16984594653460/MarketTrends) dashboard can be found on my [Tableau Online Portfolio](https://public.tableau.com/app/profile/ryan.gruber/vizzes).
+
 The first step I took to create a dashboard for this dataset was by deciding what trends and relationships I wanted to present that would be helpful for decision makers. Then, I decided what chart types would be best to represent that data, being mindful of using different kinds of charts. And finally, I drew a rough sketch of the layout for the dashboard to efficiently build it in a visually-appealing way. 
