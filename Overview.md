@@ -317,3 +317,19 @@ That concludes the SQL analysis of this project. For a full list of queries that
 The [Video Game Sales](https://public.tableau.com/app/profile/ryan.gruber/viz/VideoGameSales_16984594653460/MarketTrends) dashboard can be found on my [Tableau Online Portfolio](https://public.tableau.com/app/profile/ryan.gruber/vizzes).
 
 The first step I took to create a dashboard for this dataset was by deciding what trends and relationships I wanted to present that would be helpful for decision makers. Then, I decided what chart types would be best to represent that data, being mindful of using different kinds of charts. And finally, I drew a rough sketch of the layout for the dashboard to efficiently build it in a visually-appealing way. 
+
+The goal of this dashboard was to easily compare Nintendo's trends along with those in the entire market by having identical dashboards that stakeholders can switch between. The 'Market Trends' dashboard represents the overall market analysis while the 'Nintendo Market Analysis' dashboard shows trends only for Nintendo. 
+
+### 3.2 Chart Explanations
+
+**KPIS:** The KPIs are totals that do not update when filters are applied which helps stakeholders identify percentages of the overall market. For example, for the entire video game market, action games brought in a total of $1,722M which is about 1/5 of the total sales.
+
+**Sales By Region:** This donut chart shows the sales between the different regions in the dataset: NA, EU, JP and other along with the total sales, and represents the data when filters are applied.
+
+**Sales By Genre:** This chart is a heatmap that shows the relationship between genre and region. The genres with the highest sales in each region are shaded with a darker red while the lower sales are a lighter red.
+
+**Sales By Platform:** This treemap shows which platforms had the highest sales. The ones with larger sales are larger and shaded with a darker blue.
+
+**Top 10 Publishers/Top 10 Games:** The Top 10 Publishers bar chart in the Market Trends dashboard compares the total sales by publisher but is limited to the top 10 publishers. Since no other publishers are being analyzed in the Nintendo dashboard, this chart was replaced by the top 10 games sold by Nintendo.
+
+**Sales Over Time:** This is a hybrid chart combining a line chart and stacked bar chart. The line represents the total sales for each year, while the stacked bar chart shows the total sales by year for each region. There is also another line across the whole chart that represents the average sales.
